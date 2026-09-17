@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekkz Media | Web Design Agency</title>
+<meta name="description" content="Tekkz Media designs and builds fast, modern websites that give small businesses a real presence online.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root{
+    --blue:#2AA8E0;
+    --blue-deep:#1C86B8;
+    --purple:#8656F0;
+    --purple-deep:#6636C9;
+    --grad:linear-gradient(120deg, var(--blue), var(--purple));
+    --bg:#F3F1EA;
+    --bg-alt:#EAE7DC;
+    --surface:#FFFFFF;
+    --ink:#14131C;
+    --ink-soft:#48465A;
+    --muted:#78768A;
+    --line:rgba(20,19,28,0.10);
+    --navy:#100E1C;
+    --navy-alt:#17142B;
+    --navy-line:rgba(243,241,234,0.12);
+    --on-navy:#F3F1EA;
+    --on-navy-soft:#B4B1C4;
+    --radius:20px;
+    --radius-sm:12px;
+    --shadow:0 24px 60px -28px rgba(20,19,28,0.28);
+    --nav-h:76px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131019;
+      --bg-alt:#1B1725;
+      --surface:#1D1927;
+      --ink:#F1EFEC;
+      --ink-soft:#C7C4D2;
+      --muted:#8F8CA0;
+      --line:rgba(241,239,236,0.10);
+      --shadow:0 24px 60px -28px rgba(0,0,0,0.55);
+    }
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Hanken Grotesk',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--purple);color:#fff;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  ul{list-style:none;}
+
+  :focus-visible{ outline:2px solid var(--purple); outline-offset:3px; border-radius:4px; }
+  input:focus-visible, textarea:focus-visible{ outline-offset:0; }
+
+  html{ scrollbar-color: var(--muted) var(--bg); scrollbar-width:thin; }
+  ::-webkit-scrollbar{ width:11px; height:11px; }
+  ::-webkit-scrollbar-track{ background:var(--bg); }
+  ::-webkit-scrollbar-thumb{ background:var(--muted); border-radius:99px; border:3px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--ink-soft); }
+
+  h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-0.01em;font-weight:600;}
+
+  .wrap{max-width:1220px;margin:0 auto;padding:0 24px;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    white-space:nowrap;
+    padding:15px 26px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:15px;
+    border:none;
+    transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s cubic-bezier(.16,1,.3,1);
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{
+    background:var(--grad);
+    color:#100E1C;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -12px rgba(134,86,240,0.45); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--line);
+  }
+  .btn-ghost:hover{ border-color:var(--ink-soft); transform:translateY(-2px); }
+  .btn-on-navy{
+    background:transparent;
+    color:var(--on-navy);
+    border:1.5px solid var(--navy-line);
+  }
+  .btn-on-navy:hover{ border-color:rgba(243,241,234,0.4); transform:translateY(-2px); }
+  .btn-sm{ padding:12px 20px; font-size:14px; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    height:var(--nav-h);
+    display:flex;
+    align-items:center;
+    background:rgba(243,241,234,0.72);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  @media (prefers-color-scheme: dark){
+    header{ background:rgba(19,16,25,0.72); }
+  }
+  header.scrolled{ border-bottom-color:var(--line); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+  .logo{ display:flex; flex-direction:column; line-height:1; }
+  .logo .word{ font-family:'Syne',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.02em; }
+  .logo .word span:first-child{ color:var(--blue); }
+  .logo .word span:last-child{ color:var(--purple); }
+  .logo .tag{ font-size:11px; font-weight:600; letter-spacing:0.04em; color:var(--muted); margin-top:4px; }
+
+  .nav-links{ display:flex; align-items:center; gap:36px; }
+  .nav-links a{ font-size:15px; font-weight:600; color:var(--ink-soft); transition:color .25s ease; }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--ink); font-size:26px; padding:4px; }
+
+  .mobile-panel{
+    position:fixed; inset:var(--nav-h) 0 0 0; z-index:99;
+    background:var(--bg);
+    display:flex; flex-direction:column;
+    padding:32px 24px;
+    gap:8px;
+    transform:translateY(-12px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .mobile-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .mobile-panel a{ font-family:'Syne',sans-serif; font-size:26px; font-weight:600; padding:14px 4px; border-bottom:1px solid var(--line); }
+  .mobile-panel .btn{ margin-top:24px; width:100%; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:calc(var(--nav-h) + 76px) 0 90px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4.2vw, 50px);
+    line-height:1.14;
+    letter-spacing:-0.01em;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-actions{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; }
+
+  .hero-visual{ position:relative; height:460px; }
+  .hv-backdrop{
+    position:absolute;
+    top:8%; right:-6%;
+    width:80%; height:80%;
+    border-radius:32px;
+    background:var(--grad);
+    opacity:.16;
+    animation:blobDrift 10s ease-in-out infinite;
+  }
+  @media (prefers-color-scheme: dark){ .hv-backdrop{ opacity:.13; } }
+  @keyframes blobDrift{
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    50%{ transform:translate(14px,-10px) rotate(2deg); }
+  }
+
+  .hv-photo{
+    position:absolute;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    opacity:0;
+  }
+  .hv-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .hv-photo-a{
+    width:72%; max-width:360px; aspect-ratio:4/5;
+    top:0; left:4%; z-index:2;
+    animation: photoIntro .8s cubic-bezier(.16,1,.3,1) both, photoFloatA 6s ease-in-out infinite;
+    animation-delay: 0s, .8s;
+  }
+  .hv-photo-b{
+    width:52%; max-width:230px; aspect-ratio:1/1;
+    bottom:0; right:2%; z-index:3;
+    border:6px solid var(--bg);
+    animation: photoIntro .8s cubic-bezier(.16,1,.3,1) both, photoFloatB 6.5s ease-in-out infinite;
+    animation-delay: .25s, 1.05s;
+  }
+  @keyframes photoIntro{
+    from{ opacity:0; transform:translateY(26px) scale(.92); }
+    to{ opacity:1; transform:translateY(0) scale(1); }
+  }
+  @keyframes photoFloatA{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+  @keyframes photoFloatB{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(12px); } }
+  @media (prefers-reduced-motion: reduce){
+    .hv-backdrop{ animation:none; }
+    .hv-photo{ animation:none; opacity:1; transform:none; }
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{ padding:104px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(30px, 3.6vw, 42px); line-height:1.14; }
+  .section-head p{ margin-top:16px; font-size:17px; color:var(--ink-soft); max-width:52ch; }
+
+  /* ---------- WHY A WEBSITE ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+  .why-card{
+    border-radius:var(--radius);
+    padding:32px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1);
+  }
+  .why-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .why-card-1{ grid-column:span 2; background:var(--grad); border:none; }
+  .why-card-6{ grid-column:span 3; background:var(--navy); border:none; }
+  .why-icon{
+    width:48px; height:48px; border-radius:13px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--bg-alt);
+    margin-bottom:18px;
+  }
+  .why-icon i{ font-size:21px; color:var(--purple-deep); }
+  .why-card-1 .why-icon{ background:rgba(16,14,28,0.14); }
+  .why-card-1 .why-icon i{ color:#100E1C; }
+  .why-card-6 .why-icon{ background:rgba(243,241,234,0.1); }
+  .why-card-6 .why-icon i{ color:var(--blue); }
+  .why-card h3{ font-size:19px; margin-bottom:8px; }
+  .why-card-1 h3{ color:#100E1C; }
+  .why-card-6 h3{ color:var(--on-navy); }
+  .why-card p{ font-size:14.5px; color:var(--ink-soft); max-width:42ch; }
+  .why-card-1 p{ color:rgba(16,14,28,0.72); }
+  .why-card-6 p{ color:var(--on-navy-soft); }
+
+  /* ---------- SERVICES (NUMBERED BLOCKS) ---------- */
+  .service-blocks{ display:flex; flex-direction:column; gap:20px; }
+  .s-block{
+    border-radius:var(--radius);
+    padding:44px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
+    align-items:center;
+    background:var(--surface);
+    border:1px solid var(--line);
+  }
+  .s-block:nth-child(2){ background:var(--bg-alt); }
+  .s-block-dark{ background:var(--navy); border:none; }
+  .s-num{
+    display:block;
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.04em;
+    color:var(--purple-deep);
+    margin-bottom:10px;
+  }
+  .s-block-dark .s-num{ color:var(--blue); }
+  .s-block h3{ font-size:25px; margin-bottom:14px; }
+  .s-block-dark h3{ color:var(--on-navy); }
+  .s-block p{ font-size:15px; color:var(--ink-soft); max-width:42ch; }
+  .s-block-dark p{ color:var(--on-navy-soft); }
+  .s-list{ display:flex; flex-direction:column; gap:15px; }
+  .s-list li{ display:flex; align-items:center; gap:10px; font-size:14.5px; font-weight:500; }
+  .s-list i{ color:var(--purple-deep); font-size:16px; flex-shrink:0; }
+  .s-block-dark .s-list{ color:var(--on-navy); }
+  .s-block-dark .s-list i{ color:var(--blue); }
+
+  /* ---------- PROCESS ---------- */
+  .process-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+    position:relative;
+  }
+  .p-step{ position:relative; padding-right:32px; }
+  .p-step:not(:last-child)::after{
+    content:'';
+    position:absolute;
+    top:23px; left:0; right:-32px;
+    height:1px;
+    background:var(--line);
+  }
+  .p-num{
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--surface);
+    border:1.5px solid var(--line);
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    position:relative;
+    z-index:1;
+    margin-bottom:24px;
+  }
+  .p-step h3{ font-size:19px; margin-bottom:8px; }
+  .p-step p{ font-size:14.5px; color:var(--ink-soft); max-width:26ch; }
+
+  /* ---------- CONTACT / FOOTER (dark) ---------- */
+  .dark-zone{ background:var(--navy); color:var(--on-navy); }
+
+  .contact{ padding:0 0 104px; }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:60px;
+    border-top:1px solid var(--navy-line);
+    padding-top:80px;
+  }
+  .contact-info h2{ color:var(--on-navy); font-size:clamp(26px, 3vw, 34px); max-width:12ch; }
+  .contact-info > p{ color:var(--on-navy-soft); margin-top:16px; max-width:38ch; font-size:15.5px; }
+  .contact-links{ margin-top:36px; display:flex; flex-direction:column; gap:6px; }
+  .contact-link{
+    display:flex; align-items:center; gap:14px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--navy-line);
+    transition:gap .3s ease, color .3s ease;
+  }
+  .contact-link:hover{ gap:20px; color:var(--blue); }
+  .contact-link i{ font-size:20px; color:var(--blue); flex-shrink:0; }
+  .contact-link .cl-text{ display:flex; flex-direction:column; }
+  .contact-link .cl-label{ font-size:12px; color:var(--on-navy-soft); letter-spacing:0.06em; text-transform:uppercase; }
+  .contact-link .cl-value{ font-size:16px; font-weight:600; }
+  .contact-link .ph-arrow-up-right{ margin-left:auto; color:var(--on-navy-soft); }
+
+  form{ display:flex; flex-direction:column; gap:20px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field label{ font-size:13px; font-weight:600; color:var(--on-navy-soft); }
+  .field input, .field textarea{
+    background:rgba(243,241,234,0.06);
+    border:1.5px solid var(--navy-line);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+    color:var(--on-navy);
+    font-family:'Hanken Grotesk',sans-serif;
+    font-size:15px;
+    resize:none;
+    caret-color:var(--blue);
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(180,177,196,0.55); }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--blue); background:rgba(243,241,234,0.1); }
+  form .btn{ align-self:flex-start; margin-top:6px; }
+  .form-note{ font-size:12.5px; color:var(--on-navy-soft); margin-top:2px; }
+  .honey{ position:absolute; left:-9999px; opacity:0; }
+
+  footer{ border-top:1px solid var(--navy-line); padding:48px 0 32px; }
+  .footer-grid{ display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:32px; }
+  .footer-brand .logo .tag{ color:var(--on-navy-soft); }
+  .footer-brand p{ margin-top:14px; font-size:14px; color:var(--on-navy-soft); max-width:32ch; }
+  .footer-nav{ display:flex; gap:48px; flex-wrap:wrap; }
+  .footer-col-label{ font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--on-navy-soft); margin-bottom:16px; font-family:'Hanken Grotesk',sans-serif; font-weight:600; }
+  .footer-col a{ display:block; font-size:14.5px; color:var(--on-navy); margin-bottom:12px; }
+  .footer-col a:hover{ color:var(--blue); }
+  .footer-bottom{
+    margin-top:48px; padding-top:24px; border-top:1px solid var(--navy-line);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-size:13px; color:var(--on-navy-soft);
+  }
+  .footer-social{ display:flex; gap:14px; }
+  .footer-social a{ width:44px; height:44px; border-radius:50%; border:1px solid var(--navy-line); display:flex; align-items:center; justify-content:center; }
+  .footer-social a:hover{ border-color:var(--blue); color:var(--blue); }
+
+  /* ---------- REVEAL ---------- */
+  /* gated behind .js so content is fully visible by default if the script never runs */
+  .js [data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .js [data-reveal].in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    [data-reveal]{ opacity:1; transform:none; transition:none; }
+    .btn, .contact-link{ transition:none; }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ height:340px; margin-top:24px; }
+    .contact-grid{ grid-template-columns:1fr; gap:48px; }
+    .s-block{ grid-template-columns:1fr; gap:24px; }
+    .why-grid{ grid-template-columns:repeat(2, 1fr); }
+    .why-card-1{ grid-column:span 2; }
+    .why-card-6{ grid-column:span 2; }
+    .process-row{ grid-template-columns:1fr 1fr; row-gap:44px; }
+    .p-step:nth-child(2)::after{ display:none; }
+  }
+
+  @media (max-width:768px){
+    .nav-links{ display:none; }
+    .nav-cta .btn{ display:none; }
+    .nav-toggle{ display:block; }
+    section{ padding:76px 0; }
+    .hero{ padding-top:calc(var(--nav-h) + 40px); padding-bottom:64px; }
+    .hero-visual{ height:280px; }
+    .hv-photo-a{ max-width:220px; }
+    .hv-photo-b{ max-width:150px; }
+    .s-block{ padding:28px; }
+    .why-grid{ grid-template-columns:1fr; }
+    .why-card-1,.why-card-6{ grid-column:span 1; }
+    .process-row{ grid-template-columns:1fr; }
+    .p-step:not(:last-child)::after{ display:none; }
+    .contact-info h2{ max-width:none; }
+    .footer-grid{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">
+      <span class="word"><span>Tekkz</span><span>Media</span></span>
+      <span class="tag">WEB DESIGN AGENCY</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Start a project</a>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Websites that build your online presence.</h1>
+        <p class="lead">We design and develop custom websites that elevate your brand and help customers find and trust your business.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a project</a>
+          <a href="#services" class="btn btn-ghost">See our services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hv-backdrop" aria-hidden="true"></div>
+        <div class="hv-photo hv-photo-a">
+          <img src="images/hero-photo-main.jpg" alt="Laptop showing a colorful website dashboard">
+        </div>
+        <div class="hv-photo hv-photo-b">
+          <img src="images/hero-photo-accent.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-website">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>Why your business needs a website</h2>
+        <p>It is not just about being online. It is about being found, trusted, and remembered.</p>
+      </div>
+      <div class="why-grid" data-reveal>
+        <div class="why-card why-card-1">
+          <div class="why-icon"><i class="ph ph-bold ph-magnifying-glass"></i></div>
+          <h3>Google Visibility</h3>
+          <p>Show up when people search for a business like yours nearby, so they find you before they find a competitor who does not have a site.</p>
+        </div>
+        <div class="why-card why-card-2">
+          <div class="why-icon"><i class="ph ph-bold ph-users-three"></i></div>
+          <h3>More Customers</h3>
+          <p>Your site works around the clock. Customers can see what you offer and get in touch any time, even while you sleep.</p>
+        </div>
+        <div class="why-card why-card-3">
+          <div class="why-icon"><i class="ph ph-bold ph-star"></i></div>
+          <h3>Professional First Impressions</h3>
+          <p>People judge a business by its website in seconds. A clean, working site makes you look established and worth trusting.</p>
+        </div>
+        <div class="why-card why-card-4">
+          <div class="why-icon"><i class="ph ph-bold ph-chat-circle-dots"></i></div>
+          <h3>Easy Contact &amp; Inquiries</h3>
+          <p>No more lost messages in DMs. Customers can reach you directly through your site, and every inquiry is easy to find.</p>
+        </div>
+        <div class="why-card why-card-5">
+          <div class="why-icon"><i class="ph ph-bold ph-crown"></i></div>
+          <h3>Elevate Your Brand</h3>
+          <p>Your own domain and your own space, not shared with competitors on a social platform feed.</p>
+        </div>
+        <div class="why-card why-card-6">
+          <div class="why-icon"><i class="ph ph-bold ph-trend-up"></i></div>
+          <h3>A Real Investment</h3>
+          <p>A website is a one-time build that keeps working for you, long after a single social post or ad has been forgotten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>What's included</h2>
+        <p>From the first sketch to a site that is live, and easy for you to keep updated after that.</p>
+      </div>
+
+      <div class="service-blocks" data-reveal>
+        <div class="s-block">
+          <div>
+            <span class="s-num">01</span>
+            <h3>Website Design</h3>
+            <p>Custom design built around your business, not a template, with what your customers need front and center.</p>
+          </div>
+          <ul class="s-list">
+            <li><i class="ph ph-bold ph-check"></i>Brand-led visual direction</li>
+            <li><i class="ph ph-bold ph-check"></i>Custom layout, not a theme</li>
+            <li><i class="ph ph-bold ph-check"></i>Mobile-optimized from the start</li>
+          </ul>
+        </div>
+        <div class="s-block">
+          <div>
+            <span class="s-num">02</span>
+            <h3>Website Development</h3>
+            <p>Sites built by hand with clean code, fast to load, and simple for you to update once it is live.</p>
+          </div>
+          <ul class="s-list">
+            <li><i class="ph ph-bold ph-check"></i>Fast, responsive build</li>
+            <li><i class="ph ph-bold ph-check"></i>Domain and hosting setup</li>
+            <li><i class="ph ph-bold ph-check"></i>SEO foundations included</li>
+          </ul>
+        </div>
+        <div class="s-block s-block-dark">
+          <div>
+            <span class="s-num">03</span>
+            <h3>Launch &amp; Ongoing Care</h3>
+            <p>We launch your site, connect your tracking, and stay reachable if you need changes down the line.</p>
+          </div>
+          <ul class="s-list">
+            <li><i class="ph ph-bold ph-check"></i>Launch and handoff</li>
+            <li><i class="ph ph-bold ph-check"></i>Google Business Profile setup</li>
+            <li><i class="ph ph-bold ph-check"></i>Ongoing updates on request</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>How we get you online</h2>
+        <p>A straightforward process from first conversation to a live website, with no jargon along the way.</p>
+      </div>
+      <div class="process-row" data-reveal>
+        <div class="p-step">
+          <div class="p-num">01</div>
+          <h3>Discover</h3>
+          <p>We learn about your business, your customers, and what you actually need.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">02</div>
+          <h3>Design</h3>
+          <p>We map out a look and layout that fits your brand and your goals.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">03</div>
+          <h3>Build</h3>
+          <p>We develop the site and set up the tools to track and grow it.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-num">04</div>
+          <h3>Launch</h3>
+          <p>We launch, test everything works, and hand over a site you can manage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dark-zone">
+    <section id="contact" class="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-info" data-reveal>
+          <h2>Let's get in touch</h2>
+          <p>Reach out directly or send a message and we will reply as soon as we can.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:tekkzmedia@gmail.com">
+              <i class="ph ph-bold ph-envelope-simple"></i>
+              <span class="cl-text"><span class="cl-label">Email</span><span class="cl-value">tekkzmedia@gmail.com</span></span>
+              <i class="ph ph-arrow-up-right"></i>
+            </a>
+            <a class="contact-link" href="https://wa.me/263785427953" target="_blank" rel="noopener">
+              <i class="ph ph-bold ph-whatsapp-logo"></i>
+              <span class="cl-text"><span class="cl-label">WhatsApp / Call</span><span class="cl-value">+263 78 542 7953</span></span>
+              <i class="ph ph-arrow-up-right"></i>
+            </a>
+            <a class="contact-link" href="https://instagram.com/tekkzmedia" target="_blank" rel="noopener">
+              <i class="ph ph-bold ph-instagram-logo"></i>
+              <span class="cl-text"><span class="cl-label">Instagram</span><span class="cl-value">@tekkzmedia</span></span>
+              <i class="ph ph-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <form id="contactForm" action="https://formsubmit.co/tekkzmedia@gmail.com" method="POST" data-reveal>
+          <input type="hidden" name="_subject" value="New project enquiry from tekkzmedia.com">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="5" placeholder="Tell us a bit about your business and what you need" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-on-navy" id="formSubmitBtn">Send message</button>
+          <p class="form-note" id="formStatus" role="status" aria-live="polite">We usually reply within a day.</p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#top" class="logo">
+              <span class="word"><span>Tekkz</span><span>Media</span></span>
+              <span class="tag">WEB DESIGN AGENCY</span>
+            </a>
+            <p>We design and build websites for small businesses ready for a real presence online.</p>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-col">
+              <p class="footer-col-label">Site</p>
+              <a href="#services">Services</a>
+              <a href="#process">Process</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-label">Contact</p>
+              <a href="mailto:tekkzmedia@gmail.com">tekkzmedia@gmail.com</a>
+              <a href="https://wa.me/263785427953">+263 78 542 7953</a>
+              <a href="https://instagram.com/tekkzmedia">@tekkzmedia</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Tekkz Media. All rights reserved.</span>
+          <div class="footer-social">
+            <a href="https://instagram.com/tekkzmedia" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-bold ph-instagram-logo"></i></a>
+            <a href="mailto:tekkzmedia@gmail.com" aria-label="Email"><i class="ph ph-bold ph-envelope-simple"></i></a>
+            <a href="https://wa.me/263785427953" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-bold ph-whatsapp-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</main>
+
+<script>
+  // sticky nav shadow
+  var header = document.getElementById('site-header');
+  var sentinel = document.createElement('div');
+  sentinel.style.position = 'absolute';
+  sentinel.style.top = '1px';
+  document.body.prepend(sentinel);
+  new IntersectionObserver(function(entries){
+    header.classList.toggle('scrolled', !entries[0].isIntersecting);
+  }).observe(sentinel);
+
+  // mobile menu
+  var navToggle = document.getElementById('navToggle');
+  var mobilePanel = document.getElementById('mobilePanel');
+  navToggle.addEventListener('click', function(){
+    var open = mobilePanel.classList.toggle('open');
+    navToggle.innerHTML = open ? '<i class="ph ph-x"></i>' : '<i class="ph ph-list"></i>';
+  });
+  mobilePanel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobilePanel.classList.remove('open');
+      navToggle.innerHTML = '<i class="ph ph-list"></i>';
+    });
+  });
+
+  // scroll reveal, with a safety net so content can never stay stuck invisible
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+  revealEls.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }, 2500);
+
+  // contact form: submit via AJAX so the visitor gets loading/success/error
+  // feedback in place instead of being redirected off the site
+  var contactForm = document.getElementById('contactForm');
+  var formStatus = document.getElementById('formStatus');
+  var formBtn = document.getElementById('formSubmitBtn');
+  if(contactForm){
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var originalLabel = formBtn.textContent;
+      formBtn.disabled = true;
+      formBtn.style.opacity = '0.7';
+      formBtn.textContent = 'Sending...';
+      formStatus.textContent = 'Sending your message...';
+      formStatus.style.color = 'var(--on-navy-soft)';
+
+      var data = {};
+      new FormData(contactForm).forEach(function(value, key){ data[key] = value; });
+
+      fetch('https://formsubmit.co/ajax/tekkzmedia@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function(res){
+        if(!res.ok) throw new Error('Request failed');
+        return res.json();
+      }).then(function(){
+        contactForm.reset();
+        formBtn.textContent = originalLabel;
+        formBtn.disabled = false;
+        formBtn.style.opacity = '';
+        formStatus.textContent = 'Message sent. We usually reply within a day.';
+        formStatus.style.color = 'var(--blue)';
+      }).catch(function(){
+        formBtn.textContent = originalLabel;
+        formBtn.disabled = false;
+        formBtn.style.opacity = '';
+        formStatus.innerHTML = 'Something went wrong sending that. Please try again, or email us directly at <a href="mailto:tekkzmedia@gmail.com" style="text-decoration:underline;color:var(--blue)">tekkzmedia@gmail.com</a>.';
+        formStatus.style.color = '#F2A65A';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
