@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekkz Media | Custom Websites for Small Businesses</title>
+<meta name="description" content="Tekkz Media builds custom websites for small businesses and service brands, so your online presence finally reflects how good you actually are.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');try{if(sessionStorage.getItem('tekkz-pl'))document.documentElement.classList.add('pl-seen')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script src="js/main.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" async></script>
+</head>
+<body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pl-half pl-top"><div class="pl-logo wordmark"><span class="wm-a">Tekkz</span><span class="wm-b">Media</span></div></div>
+  <div class="pl-half pl-bottom"><div class="pl-logo wordmark"><span class="wm-a">Tekkz</span><span class="wm-b">Media</span></div></div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap nav-dock">
+    <a href="index.html" class="brand" aria-label="Tekkz Media home">
+      <span class="wordmark"><span class="wm-a">Tekkz</span><span class="wm-b">Media</span></span>
+      <span class="brand-tag">WEB DESIGN AGENCY</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="nav-link active" href="index.html" data-home>Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="portfolio.html">Portfolio</a>
+      <a class="nav-link" href="#process" data-section="process">Process</a>
+      <a class="nav-link" href="#faq" data-section="faq">FAQ</a>
+      <a class="nav-link" href="#contact" data-section="contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Start a project <span class="arrow">→</span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-canvas" aria-label="Introduction">
+    <div class="hero-sticky">
+      <div class="hero-block">
+        <canvas id="hero-plus" aria-hidden="true"></canvas>
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="wordmark is-mono"><span class="wm-a">Tekkz</span><span class="wm-b">Media</span></span>
+            <span class="mono">WEB DESIGN AGENCY</span>
+          </div>
+          <h1 class="hero-title">
+            Websites that look
+            <span class="word-wrap" aria-live="off">
+              <span class="word active">Professional</span>
+              <span class="word">Established</span>
+              <span class="word">Modern</span>
+              <span class="word">Trusted</span>
+              <span class="word">Ready</span>
+            </span>
+          </h1>
+          <div class="hero-meta">
+            <span>Custom-built. No templates.</span>
+            <span>Small businesses &amp; service brands</span>
+          </div>
+        </div>
+
+        <div class="hero-tech">
+          <div class="hero-tech-inner">
+            <span class="status-pill"><span class="status-dot"></span>Now open for projects</span>
+            <p class="hero-tagline">Your business is better than your website lets on. We build custom websites for local businesses and service brands, so your online presence finally <em>reflects how good you actually are.</em></p>
+            <div class="hero-ctas">
+              <a href="#contact" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+              <a href="services.html" class="btn btn-ghost">See services</a>
+            </div>
+            <div class="tech-row"><span>Based in Zimbabwe</span><span>Building worldwide</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="whofor" aria-label="Who we build for">
+    <h2 class="whofor-title reveal">Made for the businesses that keep your town running.</h2>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-row">
+        <div class="marquee-track">
+          <span class="tag">Restaurants</span><span class="tag">Salons</span><span class="tag">Barbers</span><span class="tag">Cafes</span><span class="tag">Bakeries</span><span class="tag">Boutiques</span><span class="tag">Contractors</span><span class="tag">Cleaners</span><span class="tag">Photographers</span><span class="tag">Consultants</span><span class="tag">Gyms</span><span class="tag">Clinics</span><span class="tag">Caterers</span><span class="tag">Florists</span>
+          <span class="tag">Restaurants</span><span class="tag">Salons</span><span class="tag">Barbers</span><span class="tag">Cafes</span><span class="tag">Bakeries</span><span class="tag">Boutiques</span><span class="tag">Contractors</span><span class="tag">Cleaners</span><span class="tag">Photographers</span><span class="tag">Consultants</span><span class="tag">Gyms</span><span class="tag">Clinics</span><span class="tag">Caterers</span><span class="tag">Florists</span>
+        </div>
+      </div>
+      <div class="marquee-row">
+        <div class="marquee-track rev">
+          <span class="tag">Lodges</span><span class="tag">Tour Operators</span><span class="tag">Event Planners</span><span class="tag">Mechanics</span><span class="tag">Law Firms</span><span class="tag">Accountants</span><span class="tag">Real Estate</span><span class="tag">Schools</span><span class="tag">Churches</span><span class="tag">Dentists</span><span class="tag">Tutors</span><span class="tag">Interior Designers</span><span class="tag">Hardware Stores</span><span class="tag">Farms</span>
+          <span class="tag">Lodges</span><span class="tag">Tour Operators</span><span class="tag">Event Planners</span><span class="tag">Mechanics</span><span class="tag">Law Firms</span><span class="tag">Accountants</span><span class="tag">Real Estate</span><span class="tag">Schools</span><span class="tag">Churches</span><span class="tag">Dentists</span><span class="tag">Tutors</span><span class="tag">Interior Designers</span><span class="tag">Hardware Stores</span><span class="tag">Farms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REALITY -->
+  <section class="section" id="reality" aria-labelledby="reality-title">
+    <div class="wrap reality-grid">
+      <div class="reality-content">
+        <span class="eyebrow reveal">The reality</span>
+        <h2 class="reality-headline reveal" data-delay="1" id="reality-title">You're good at what you do.<br><span class="dim">Nobody knows it.</span></h2>
+        <div class="reality-punches">
+          <p class="reveal reveal-line">You turn up. You do solid work. <strong>Your customers leave happy.</strong></p>
+          <p class="reveal" data-delay="1">But the next customer, the one searching on their phone right now, <strong>can't find you.</strong></p>
+          <p class="reveal" data-delay="2">So they pick someone else. Not because that business is better. <strong>Because it showed up online and you didn't.</strong></p>
+        </div>
+        <p class="reality-closing reveal" data-delay="3">That's the gap we close.</p>
+      </div>
+
+      <div class="reality-stat reveal">
+        <div class="chart-legend">
+          <span><i style="background:#2AA8E0"></i>With online presence</span>
+          <span><i style="background:#6B6B78"></i>Without online presence</span>
+        </div>
+        <div class="chart-box">
+          <canvas id="reality-chart" role="img" aria-label="Illustrative chart: a business with an online presence grows revenue from an index of 100 to 196 over three years, versus 100 to 115 without one."></canvas>
+        </div>
+        <p class="chart-note">Illustrative comparison. Revenue indexed to Year 1 = 100.</p>
+
+        <div class="stat-callout">
+          <span class="stat-num">81%</span>
+          <p class="stat-text">of shoppers research a business online before they visit or buy.
+            <span class="stat-src">Source: GE Capital Retail Bank, Major Purchase Shopper Study</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="why-block" id="why-website">
+        <div class="why-head">
+          <span class="eyebrow reveal">( Why it matters )</span>
+          <h2 class="why-title reveal" data-delay="1">Why your business needs a website.</h2>
+        </div>
+        <ol class="why-rows">
+          <li class="why-row reveal">
+            <span class="why-num">01</span>
+            <h3>Google visibility</h3>
+            <p>Show up when people nearby search for what you do, before they find a competitor who has a site.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-magnifying-glass"></i></span>
+          </li>
+          <li class="why-row reveal" data-delay="1">
+            <span class="why-num">02</span>
+            <h3>More customers</h3>
+            <p>Your site works around the clock, so people can see what you offer and reach you any time, even while you sleep.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-users-three"></i></span>
+          </li>
+          <li class="why-row reveal" data-delay="2">
+            <span class="why-num">03</span>
+            <h3>Professional first impressions</h3>
+            <p>People judge a business in seconds. A clean, working site makes you look established and worth trusting.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-star"></i></span>
+          </li>
+          <li class="why-row reveal" data-delay="3">
+            <span class="why-num">04</span>
+            <h3>Easy contact &amp; inquiries</h3>
+            <p>No more lost messages in your DMs. Customers reach you straight from your site, and every inquiry is easy to find.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-chat-circle-dots"></i></span>
+          </li>
+          <li class="why-row reveal" data-delay="4">
+            <span class="why-num">05</span>
+            <h3>Elevate your brand</h3>
+            <p>Your own domain and your own space online, not a feed you share with every one of your competitors.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-crown"></i></span>
+          </li>
+          <li class="why-row reveal" data-delay="5">
+            <span class="why-num">06</span>
+            <h3>A real investment</h3>
+            <p>A one-time build that keeps working for you long after a post or an ad has been forgotten.</p>
+            <span class="why-icon" aria-hidden="true"><i class="ph ph-trend-up"></i></span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES TEASER (prices live on services.html) -->
+  <section class="section" id="services-teaser" aria-labelledby="teaser-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Services</span>
+        <h2 class="section-title reveal" data-delay="1" id="teaser-title">What we build.</h2>
+        <p class="section-sub reveal" data-delay="2">Clear, flat pricing. No hourly billing and no surprise invoices.</p>
+      </div>
+      <div class="teaser-grid reveal">
+        <a class="teaser-card" href="services.html#pricing">
+          <span class="num">01</span>
+          <h3>Single-page site</h3>
+          <p>Everything a small business needs on one clean, fast page, with a contact form and the basics of SEO set up.</p>
+        </a>
+        <a class="teaser-card" href="services.html#pricing">
+          <span class="num">02</span>
+          <h3>Multi-page website</h3>
+          <p>Separate pages for your services, story, and contact details, structured so Google can find each one.</p>
+        </a>
+        <a class="teaser-card" href="services.html#pricing">
+          <span class="num">03</span>
+          <h3>Redesign</h3>
+          <p>Already have a site that isn't working for you? We rebuild it with your content carried over.</p>
+        </a>
+      </div>
+      <div class="teaser-foot reveal">
+        <p>Websites start from $500.</p>
+        <a href="services.html" class="btn btn-primary">See services &amp; pricing <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow reveal">( How we work )</span>
+        <h2 class="section-title reveal" data-delay="1" id="process-title">Our process</h2>
+        <p class="section-sub reveal" data-delay="2">Four steps from your first message to a live website.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">01</span><span class="step-dot"></span>
+          <h3>Brief</h3>
+          <p>Fill out the form and we set up a short call to understand your business. Then we scope the project and confirm your quote.</p>
+        </div>
+        <div class="step reveal" data-delay="1">
+          <span class="step-num">02</span><span class="step-dot"></span>
+          <h3>Design</h3>
+          <p>We design the full look first. You give feedback and we refine it until you sign off, before any code is written.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <span class="step-num">03</span><span class="step-dot"></span>
+          <h3>Build</h3>
+          <p>We build the approved design from scratch, no templates, and send you a preview link to check every detail.</p>
+        </div>
+        <div class="step reveal" data-delay="3">
+          <span class="step-num">04</span><span class="step-dot"></span>
+          <h3>Launch</h3>
+          <p>We put it live, make sure it shows up on Google, and show you how to manage it. Care plans start here if you want one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">( Selected work )</span>
+        <h2 class="section-title reveal" data-delay="1" id="work-title">Selected work.</h2>
+        <p class="section-sub reveal" data-delay="2">Real businesses, real websites. Here's some of what we've built.</p>
+      </div>
+
+      <div class="work-grid">
+        <a class="work-card reveal" href="portfolio.html#fitven">
+          <div class="work-shot">
+            <div class="work-bar" aria-hidden="true"><span></span><span></span><span></span><em>fitven-zw</em></div>
+            <img src="images/work/fitven-desktop.jpg" alt="Fitven ZW website homepage showing sports gear for sale" loading="lazy" width="1440" height="900">
+          </div>
+          <div class="work-tags"><span>E-commerce</span><span>Harare &amp; Bulawayo</span></div>
+          <div class="work-meta">
+            <div>
+              <h3>01. Fitven ZW</h3>
+              <p>Product catalogue for a sports and gym gear store, with orders placed straight through WhatsApp.</p>
+            </div>
+            <span class="work-arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
+          </div>
+        </a>
+
+        <a class="work-card reveal" data-delay="1" href="portfolio.html#wired">
+          <div class="work-shot">
+            <div class="work-bar" aria-hidden="true"><span></span><span></span><span></span><em>wiredsolutions</em></div>
+            <img src="images/work/wired-desktop.jpg" alt="Wired Solutions website homepage for an IT and networking company" loading="lazy" width="1440" height="900">
+          </div>
+          <div class="work-tags"><span>IT &amp; Networking</span><span>Harare</span></div>
+          <div class="work-meta">
+            <div>
+              <h3>02. Wired Solutions</h3>
+              <p>Business site for a technology company covering IT support, networking, CCTV and device repairs.</p>
+            </div>
+            <span class="work-arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-foot reveal">
+        <a href="portfolio.html" class="btn btn-ghost">View portfolio <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow reveal">( FAQ )</span>
+        <h2 class="section-title reveal" data-delay="1" id="faq-title">Questions, answered.</h2>
+        <p class="section-sub reveal" data-delay="2">What most people want to know before they reach out.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What happens after I fill out the form?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>We reach out within a day to set up a free discovery call. We talk through your goals and design direction, then send you a quote. No commitment required.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How much does a website cost?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>New websites start from $500, multi-page sites from $1,000, and redesigns run $250 to $500. Every package is one flat price with no hourly billing. See the full breakdown on our <a href="services.html">services page</a>.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How long does it take to build?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>Most sites are live in under a week from kickoff. Bigger multi-page builds can take a little longer, and we'll give you a clear date upfront.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Why not just use Wix or a free template?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>Template builders look like everyone else, load slowly, and charge you every month. A custom site loads faster, looks like your business, and belongs to you.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I own my website once it's built?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>Yes. Your site, your domain, your content. We hand everything over, and we're happy to stay on with a care plan if you'd like us to handle updates.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What if I need changes after launch?<span class="faq-icon" aria-hidden="true"><span>+</span></span></button>
+          <div class="faq-a"><div><p>Our optional care plans cover hosting, backups, and small content updates each month. Or just message us for one-off changes, no contract needed.</p></div></div>
+        </div>
+      </div>
+      <p class="faq-more reveal">Still have a question? <a href="#contact">Reach out directly →</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="contact-side">
+        <span class="eyebrow reveal">( Contact )</span>
+        <h2 class="section-title reveal" data-delay="1" id="contact-title">Get in touch</h2>
+        <p class="section-sub reveal" data-delay="2">Fill out the form and we'll set up a free discovery call. No commitment.</p>
+        <div class="direct-list reveal" data-delay="3">
+          <a class="direct" href="mailto:tekkzmedia@gmail.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i><span><small>Email</small><strong>tekkzmedia@gmail.com</strong></span></a>
+          <a class="direct" href="https://wa.me/263785427953" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span><small>WhatsApp / Call</small><strong>+263 78 542 7953</strong></span></a>
+          <a class="direct" href="https://instagram.com/tekkzmedia" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" aria-hidden="true"></i><span><small>Instagram</small><strong>@tekkzmedia</strong></span></a>
+        </div>
+      </div>
+
+      <form id="contact-form" class="form reveal" data-delay="2" action="https://formsubmit.co/tekkzmedia@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New project inquiry from tekkzmedia website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="c-name">Your name</label>
+            <input id="c-name" name="Name" type="text" autocomplete="name" placeholder="Tendai Moyo" required>
+          </div>
+          <div class="field">
+            <label for="c-email">Email address</label>
+            <input id="c-email" name="Email" type="email" autocomplete="email" placeholder="you@business.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="c-biz">Business name</label>
+            <input id="c-biz" name="Business" type="text" autocomplete="organization" placeholder="Your business">
+          </div>
+          <div class="field">
+            <label for="c-type">Business type</label>
+            <input id="c-type" name="Business type" type="text" placeholder="Salon, cafe, contractor…">
+          </div>
+        </div>
+
+        <fieldset class="field" style="border:0">
+          <legend class="field-label" style="margin-bottom:8px">Project type</legend>
+          <p class="choice-hint" style="margin-bottom:10px">Not sure which fits? Skip it and we'll work it out on the call.</p>
+          <div class="choices">
+            <input class="choice-input" type="radio" name="Project type" id="pt-single" value="single-page site">
+            <label class="choice" for="pt-single"><span class="c-name">Single-page</span><span class="c-sub">One focused page</span></label>
+            <input class="choice-input" type="radio" name="Project type" id="pt-multi" value="multi-page website">
+            <label class="choice" for="pt-multi"><span class="c-name">Multi-page</span><span class="c-sub">Up to 5 pages</span></label>
+            <input class="choice-input" type="radio" name="Project type" id="pt-redesign" value="redesign">
+            <label class="choice" for="pt-redesign"><span class="c-name">Redesign</span><span class="c-sub">Rebuild your site</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="c-msg">Brief project scope</label>
+          <textarea id="c-msg" name="Message" rows="5" placeholder="What does your business do, and what do you need the website to do for you?" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="contact-submit" class="btn btn-primary">Send inquiry <span class="arrow">→</span></button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite">We usually reply within a day.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="wordmark footer-mark"><span class="wm-a">Tekkz</span><span class="wm-b">Media</span></a>
+        <p class="footer-blurb">Custom websites for small businesses and service brands.</p>
+      </div>
+      <div class="footer-col">
+        <h4>( Main pages )</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>( Reach us )</h4>
+        <a href="mailto:tekkzmedia@gmail.com">tekkzmedia@gmail.com</a>
+        <a href="https://wa.me/263785427953" target="_blank" rel="noopener">+263 78 542 7953</a>
+        <a href="https://instagram.com/tekkzmedia" target="_blank" rel="noopener">@tekkzmedia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tekkz Media. All rights reserved.</span>
+      <span>Designed &amp; built by Tekkz Media</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/263785427953" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span class="wa-label">Chat on WhatsApp</span>
+</a>
+
+</body>
+</html>
